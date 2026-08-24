@@ -1,17 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
 :root {
-  --bg: #07050b;
-  --bg-soft: #100a16;
-  --card: rgba(255,255,255,.055);
-  --glass: rgba(255,255,255,.065);
-  --glass-strong: rgba(255,255,255,.10);
+  --bg: #0b0610;
+  --bg-soft: #130a19;
+  --card: #1a0d20;
   --text: #fff8fc;
   --muted: #b9aab7;
   --pink: #ff6fae;
   --rose: #ff9bc5;
-  --line: rgba(255,255,255,.13);
-  --shadow: 0 30px 100px rgba(0,0,0,.38);
+  --line: rgba(255,255,255,.11);
 }
 
 * {
@@ -25,11 +22,7 @@ html {
 }
 
 body {
-  min-height: 100vh;
-  background:
-    radial-gradient(circle at 50% -10%, rgba(255, 94, 164, .12), transparent 30%),
-    radial-gradient(circle at 10% 40%, rgba(139, 74, 255, .08), transparent 25%),
-    var(--bg);
+  background: var(--bg);
   color: var(--text);
   font-family: "DM Sans", sans-serif;
   overflow-x: hidden;
@@ -43,74 +36,6 @@ body.no-scroll {
   background: var(--pink);
   color: white;
 }
-
-/* =========================
-   ANIMATED GLASS BACKGROUND
-   ========================= */
-
-.aurora {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-  filter: blur(12px);
-}
-
-.orb {
-  position: absolute;
-  width: 32vw;
-  height: 32vw;
-  min-width: 220px;
-  min-height: 220px;
-  border-radius: 50%;
-  opacity: .14;
-  mix-blend-mode: screen;
-  animation: orbFloat 16s ease-in-out infinite alternate;
-}
-
-.orb-1 {
-  left: -10vw;
-  top: 15vh;
-  background: #ff4f9a;
-}
-
-.orb-2 {
-  right: -10vw;
-  top: 45vh;
-  background: #8d55ff;
-  animation-delay: -5s;
-}
-
-.orb-3 {
-  left: 35vw;
-  bottom: -15vw;
-  background: #ff78bd;
-  animation-delay: -9s;
-}
-
-@keyframes orbFloat {
-  from {
-    transform: translate3d(0,0,0) scale(1);
-  }
-
-  to {
-    transform: translate3d(5vw,-5vh,0) scale(1.16);
-  }
-}
-
-.noise {
-  position: fixed;
-  inset: 0;
-  z-index: 2;
-  pointer-events: none;
-  opacity: .025;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
-}
-
-/* =========================
-   FLOATING HEARTS
-   ========================= */
 
 .bg-hearts {
   position: fixed;
@@ -127,88 +52,41 @@ body.no-scroll {
   animation: drift 15s linear infinite;
 }
 
-.bg-hearts span:nth-child(1) {
-  left: 5%;
-  top: 10%;
-  animation-delay: 0s;
-}
-
-.bg-hearts span:nth-child(2) {
-  left: 22%;
-  top: 70%;
-  animation-delay: 3s;
-}
-
-.bg-hearts span:nth-child(3) {
-  left: 42%;
-  top: 30%;
-  animation-delay: 5s;
-}
-
-.bg-hearts span:nth-child(4) {
-  left: 68%;
-  top: 75%;
-  animation-delay: 1s;
-}
-
-.bg-hearts span:nth-child(5) {
-  left: 85%;
-  top: 15%;
-  animation-delay: 6s;
-}
-
-.bg-hearts span:nth-child(6) {
-  left: 12%;
-  top: 45%;
-  animation-delay: 8s;
-}
-
-.bg-hearts span:nth-child(7) {
-  left: 55%;
-  top: 85%;
-  animation-delay: 4s;
-}
-
-.bg-hearts span:nth-child(8) {
-  left: 78%;
-  top: 48%;
-  animation-delay: 7s;
-}
-
-.bg-hearts span:nth-child(9) {
-  left: 35%;
-  top: 90%;
-  animation-delay: 2s;
-}
-
-.bg-hearts span:nth-child(10) {
-  left: 92%;
-  top: 60%;
-  animation-delay: 9s;
-}
+.bg-hearts span:nth-child(1) { left: 5%; top: 10%; animation-delay: 0s; }
+.bg-hearts span:nth-child(2) { left: 22%; top: 70%; animation-delay: 3s; }
+.bg-hearts span:nth-child(3) { left: 42%; top: 30%; animation-delay: 5s; }
+.bg-hearts span:nth-child(4) { left: 68%; top: 75%; animation-delay: 1s; }
+.bg-hearts span:nth-child(5) { left: 85%; top: 15%; animation-delay: 6s; }
+.bg-hearts span:nth-child(6) { left: 12%; top: 45%; animation-delay: 8s; }
+.bg-hearts span:nth-child(7) { left: 55%; top: 85%; animation-delay: 4s; }
+.bg-hearts span:nth-child(8) { left: 78%; top: 48%; animation-delay: 7s; }
+.bg-hearts span:nth-child(9) { left: 35%; top: 90%; animation-delay: 2s; }
+.bg-hearts span:nth-child(10) { left: 92%; top: 60%; animation-delay: 9s; }
 
 @keyframes drift {
-  0%, 100% {
-    transform: translateY(0) rotate(0);
-  }
-
-  50% {
-    transform: translateY(-35px) rotate(12deg);
-  }
+  0%, 100% { transform: translateY(0) rotate(0); }
+  50% { transform: translateY(-35px) rotate(12deg); }
 }
-
-/* =========================
-   GLOBAL
-   ========================= */
 
 section {
   position: relative;
   z-index: 1;
 }
 
-main {
-  position: relative;
-  z-index: 3;
+.hero {
+  min-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 22px;
+  background:
+    radial-gradient(circle at 50% 40%, rgba(255, 79, 145, .16), transparent 35%),
+    radial-gradient(circle at 20% 80%, rgba(130, 58, 180, .12), transparent 30%);
+}
+
+.hero-content {
+  max-width: 760px;
 }
 
 .eyebrow,
@@ -220,38 +98,8 @@ main {
   text-transform: uppercase;
 }
 
-/* =========================
-   HERO
-   ========================= */
-
-.hero {
-  min-height: 100svh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 40px 22px;
-
-  background:
-    radial-gradient(
-      circle at 50% 40%,
-      rgba(255, 79, 145, .16),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 20% 80%,
-      rgba(130, 58, 180, .12),
-      transparent 30%
-    );
-}
-
-.hero-content {
-  max-width: 760px;
-}
-
 .hero h1 {
   margin: 18px 0;
-
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(65px, 12vw, 130px);
   line-height: .82;
@@ -272,32 +120,19 @@ h2 em {
   margin: 25px auto 35px;
 }
 
-/* =========================
-   BUTTONS
-   ========================= */
-
 .primary-btn,
 .surprise-btn {
   display: inline-flex;
   align-items: center;
   gap: 14px;
-
   border: 1px solid rgba(255, 111, 174, .5);
   border-radius: 100px;
-
   padding: 14px 22px;
-
   color: white;
   background: rgba(255,255,255,.04);
-
   text-decoration: none;
   font-size: 13px;
-
-  transition:
-    background .3s ease,
-    border-color .3s ease,
-    transform .3s ease,
-    box-shadow .3s ease;
+  transition: .3s ease;
 }
 
 .primary-btn:hover,
@@ -305,30 +140,15 @@ h2 em {
   background: var(--pink);
   border-color: var(--pink);
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(255,111,174,.25);
 }
 
 .scroll-hint {
   position: absolute;
   bottom: 28px;
-
   color: #776975;
   font-size: 9px;
   letter-spacing: 3px;
-
-  animation: scrollPulse 2s ease-in-out infinite;
 }
-
-@keyframes scrollPulse {
-  50% {
-    opacity: .35;
-    transform: translateY(5px);
-  }
-}
-
-/* =========================
-   SECTIONS
-   ========================= */
 
 .section {
   max-width: 1050px;
@@ -340,13 +160,10 @@ h2 em {
 .final-section h2,
 .letter h2 {
   margin: 15px 0;
-
   font-family: "Cormorant Garamond", serif;
   font-weight: 500;
-
   font-size: clamp(48px, 7vw, 78px);
   line-height: .9;
-
   letter-spacing: -2px;
 }
 
@@ -356,42 +173,21 @@ h2 em {
   margin: 22px 0 40px;
 }
 
-/* =========================
-   GLASS CARD
-   ========================= */
-
-.glass-card,
 .counter-card {
   border: 1px solid var(--line);
   border-radius: 28px;
-
   padding: 35px;
-
   background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.095),
-      rgba(255,255,255,.025)
-    ),
-    var(--glass);
-
-  backdrop-filter: blur(24px) saturate(130%);
-  -webkit-backdrop-filter: blur(24px) saturate(130%);
-
-  box-shadow: var(--shadow);
+    linear-gradient(145deg, rgba(255,255,255,.045), rgba(255,255,255,.015)),
+    var(--card);
+  box-shadow: 0 30px 100px rgba(0,0,0,.3);
 }
-
-/* =========================
-   COUNTER
-   ========================= */
 
 .counter-date {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   gap: 20px;
-
   padding-bottom: 25px;
   border-bottom: 1px solid var(--line);
 }
@@ -411,7 +207,6 @@ h2 em {
 .counter-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-
   padding: 40px 0 30px;
 }
 
@@ -426,16 +221,10 @@ h2 em {
 
 .counter-item strong {
   display: block;
-
   font-size: clamp(40px, 7vw, 75px);
   font-weight: 500;
-
   letter-spacing: -3px;
-
   font-family: "Cormorant Garamond", serif;
-
-  text-shadow:
-    0 0 25px rgba(255,111,174,.12);
 }
 
 .counter-item span {
@@ -450,36 +239,20 @@ h2 em {
   font-size: 12px;
 }
 
-/* =========================
-   MEMORY CARDS
-   ========================= */
-
 .memory-grid {
   display: grid;
-
   grid-template-columns: 1.5fr 1fr;
-
   gap: 18px;
-
   margin-top: 45px;
 }
 
 .memory-card {
   height: 340px;
-
   position: relative;
   overflow: hidden;
-
   border-radius: 22px;
-
   border: 1px solid var(--line);
-
-  background: var(--glass);
-
-  box-shadow: var(--shadow);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  background: var(--card);
 }
 
 .memory-card.large {
@@ -490,32 +263,20 @@ h2 em {
 .memory-card img {
   width: 100%;
   height: 100%;
-
   object-fit: cover;
-
-  transition:
-    transform .8s ease,
-    filter .8s ease;
-
-  filter: saturate(.8);
+  transition: transform .8s ease;
+  filter: saturate(.82) contrast(.96);
 }
 
 .memory-card:hover img {
   transform: scale(1.06);
-  filter: saturate(1);
 }
 
 .memory-overlay {
   position: absolute;
   inset: auto 0 0;
-
   padding: 25px;
-
-  background:
-    linear-gradient(
-      transparent,
-      rgba(0,0,0,.88)
-    );
+  background: linear-gradient(transparent, rgba(0,0,0,.85));
 }
 
 .memory-overlay span {
@@ -526,25 +287,17 @@ h2 em {
 
 .memory-overlay h3 {
   font-family: "Cormorant Garamond", serif;
-
   font-size: 28px;
   font-weight: 500;
-
   margin-top: 6px;
 }
 
 .replace-note {
   color: #766875;
   text-align: center;
-
   font-size: 11px;
-
   margin-top: 18px;
 }
-
-/* =========================
-   REASONS
-   ========================= */
 
 .reasons-section {
   padding-top: 50px;
@@ -552,101 +305,46 @@ h2 em {
 
 .reasons-grid {
   display: grid;
-
   grid-template-columns: repeat(2, 1fr);
-
   gap: 1px;
-
   margin-top: 50px;
-
   background: var(--line);
-
   border: 1px solid var(--line);
-
-  border-radius: 22px;
-  overflow: hidden;
 }
 
 .reason {
   min-height: 150px;
-
   padding: 30px;
-
-  background: rgba(255,255,255,.045);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  transition:
-    background .35s ease,
-    transform .35s ease;
-}
-
-.reason:hover {
-  background: rgba(255,255,255,.08);
-  transform: translateY(-4px);
+  background: var(--bg);
 }
 
 .reason span {
   color: var(--pink);
-
   font-size: 10px;
   letter-spacing: 2px;
 }
 
 .reason p {
   font-family: "Cormorant Garamond", serif;
-
   font-size: 25px;
   line-height: 1.05;
-
   margin-top: 25px;
 }
-
-/* =========================
-   LETTER
-   ========================= */
 
 .letter-section {
   position: relative;
   z-index: 1;
-
   padding: 120px 24px;
-
-  background:
-    linear-gradient(
-      rgba(18,8,23,.55),
-      rgba(18,8,23,.55)
-    ),
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(255,111,174,.10),
-      transparent 42%
-    );
+  background: #120817;
 }
 
 .letter {
   max-width: 720px;
-
   margin: auto;
-
   padding: 55px;
-
   border: 1px solid var(--line);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.10),
-      rgba(255,255,255,.035)
-    );
-
+  background: rgba(255,255,255,.025);
   border-radius: 25px;
-
-  backdrop-filter: blur(26px) saturate(135%);
-  -webkit-backdrop-filter: blur(26px) saturate(135%);
-
-  box-shadow: var(--shadow);
 }
 
 .letter h2 {
@@ -656,56 +354,35 @@ h2 em {
 .letter-line {
   width: 55px;
   height: 1px;
-
   background: var(--pink);
-
   margin: 35px 0;
 }
 
 .letter p:not(.section-label):not(.signature) {
   color: #c6b8c3;
-
   font-family: "Cormorant Garamond", serif;
-
   font-size: 22px;
   line-height: 1.5;
-
   margin-bottom: 20px;
 }
 
 .signature {
   color: var(--rose);
-
   font-family: "Cormorant Garamond", serif;
-
   font-size: 23px;
-
   margin-top: 35px;
-
   font-style: italic;
 }
 
-/* =========================
-   FINAL SECTION
-   ========================= */
-
 .final-section {
   min-height: 85svh;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   text-align: center;
-
   padding: 80px 24px;
-
   background:
-    radial-gradient(
-      circle at 50% 50%,
-      rgba(255, 91, 155, .16),
-      transparent 35%
-    );
+    radial-gradient(circle at 50% 50%, rgba(255, 91, 155, .16), transparent 35%);
 }
 
 .final-section h2 {
@@ -714,97 +391,26 @@ h2 em {
 
 .final-section p:not(.eyebrow) {
   color: var(--muted);
-
   margin: 25px 0 35px;
 }
 
-/* =========================
-   SCROLL FLY-IN ANIMATION
-   ========================= */
-
-.reveal {
-  opacity: 0;
-
-  filter: blur(10px);
-
-  will-change:
-    transform,
-    opacity,
-    filter;
-
-  transition:
-    transform 900ms cubic-bezier(.16,1,.3,1),
-    opacity 700ms ease,
-    filter 900ms ease;
-
-  transition-delay:
-    var(--reveal-delay, 0ms);
+.surprise-btn {
+  cursor: pointer;
+  font-family: inherit;
 }
-
-.reveal-up {
-  transform:
-    translate3d(0, 90px, 0)
-    scale(.94);
-}
-
-.reveal-left {
-  transform:
-    translate3d(-110px, 35px, 0)
-    rotate(-2deg)
-    scale(.94);
-}
-
-.reveal-right {
-  transform:
-    translate3d(110px, 35px, 0)
-    rotate(2deg)
-    scale(.94);
-}
-
-.reveal.is-visible {
-  opacity: 1;
-
-  filter: blur(0);
-
-  transform:
-    translate3d(0,0,0)
-    rotate(0)
-    scale(1);
-}
-
-.hero-content.reveal {
-  transition-duration: 1200ms;
-}
-
-.counter-card.reveal,
-.letter.reveal {
-  transition-duration: 1100ms;
-}
-
-/* =========================
-   MODAL
-   ========================= */
 
 .modal {
   position: fixed;
   inset: 0;
-
   z-index: 100;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 20px;
-
   background: rgba(4, 2, 6, .86);
-
   backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-
   opacity: 0;
   visibility: hidden;
-
   transition: .35s ease;
 }
 
@@ -815,87 +421,48 @@ h2 em {
 
 .modal-card {
   width: min(560px, 100%);
-
   position: relative;
-
   padding: 55px 30px;
-
   text-align: center;
-
   border: 1px solid rgba(255,111,174,.25);
-
   border-radius: 30px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(255,255,255,.11),
-      rgba(255,255,255,.045)
-    );
-
-  backdrop-filter: blur(30px) saturate(140%);
-  -webkit-backdrop-filter: blur(30px) saturate(140%);
-
-  box-shadow:
-    0 40px 120px rgba(0,0,0,.6);
-
-  transform:
-    translateY(25px)
-    scale(.97);
-
+  background: #170a1c;
+  box-shadow: 0 40px 120px rgba(0,0,0,.6);
+  transform: translateY(25px) scale(.97);
   transition: .35s ease;
 }
 
 .modal.show .modal-card {
-  transform:
-    translateY(0)
-    scale(1);
+  transform: translateY(0) scale(1);
 }
 
 .close-btn {
   position: absolute;
-
   top: 15px;
   right: 18px;
-
   width: 35px;
   height: 35px;
-
   border: 0;
-
   background: transparent;
-
   color: #9d8999;
-
   font-size: 28px;
-
   cursor: pointer;
 }
 
 .big-heart {
   color: var(--pink);
-
   font-size: 55px;
-
   animation: pulse 1.5s infinite;
-
-  text-shadow:
-    0 0 30px rgba(255,111,174,.4);
 }
 
 @keyframes pulse {
-  50% {
-    transform: scale(1.15);
-  }
+  50% { transform: scale(1.15); }
 }
 
 .modal-card h2 {
   font-family: "Cormorant Garamond", serif;
-
   font-size: 58px;
-
   line-height: .9;
-
   margin: 15px 0 30px;
 }
 
@@ -906,50 +473,30 @@ h2 em {
 
 .choice-buttons {
   display: flex;
-
   justify-content: center;
-
   gap: 10px;
-
   flex-wrap: wrap;
 }
 
 .choice-buttons button {
   border: 1px solid rgba(255,111,174,.4);
-
   background: rgba(255,255,255,.04);
-
   color: white;
-
   border-radius: 100px;
-
   padding: 13px 18px;
-
   cursor: pointer;
-
   font-family: inherit;
-
-  transition: .3s ease;
 }
 
 .choice-buttons button:hover {
   background: var(--pink);
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 10px 30px rgba(255,111,174,.2);
 }
 
 .hidden-message {
   display: none;
-
   color: var(--rose) !important;
-
   font-family: "Cormorant Garamond", serif;
-
   font-size: 22px !important;
-
   margin-top: 25px;
 }
 
@@ -957,58 +504,22 @@ h2 em {
   display: block;
 }
 
-/* =========================
-   FINAL FLYING HEARTS
-   ========================= */
-
 .floating-heart {
   position: fixed;
-
   bottom: -40px;
-
   z-index: 200;
-
   color: var(--pink);
-
   pointer-events: none;
-
-  animation:
-    fly 4s ease-out forwards;
-
-  text-shadow:
-    0 0 15px rgba(255,111,174,.5);
+  animation: fly 4s ease-out forwards;
 }
 
 @keyframes fly {
-  0% {
-    transform:
-      translateY(0)
-      scale(.5)
-      rotate(0);
-
-    opacity: 0;
-  }
-
-  15% {
-    opacity: 1;
-  }
-
-  100% {
-    transform:
-      translateY(-110vh)
-      scale(1.2)
-      rotate(30deg);
-
-    opacity: 0;
-  }
+  0% { transform: translateY(0) scale(.5) rotate(0); opacity: 0; }
+  15% { opacity: 1; }
+  100% { transform: translateY(-110vh) scale(1.2) rotate(30deg); opacity: 0; }
 }
 
-/* =========================
-   RESPONSIVE
-   ========================= */
-
 @media (max-width: 700px) {
-
   .section {
     padding: 90px 18px;
   }
@@ -1067,51 +578,5 @@ h2 em {
 
   .letter p:not(.section-label):not(.signature) {
     font-size: 20px;
-  }
-
-  .reveal-left {
-    transform:
-      translate3d(-55px, 30px, 0)
-      rotate(-2deg)
-      scale(.96);
-  }
-
-  .reveal-right {
-    transform:
-      translate3d(55px, 30px, 0)
-      rotate(2deg)
-      scale(.96);
-  }
-
-  .orb {
-    width: 55vw;
-    height: 55vw;
-  }
-}
-
-/* =========================
-   REDUCED MOTION
-   ========================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-  html {
-    scroll-behavior: auto;
-  }
-
-  .reveal,
-  .reveal.is-visible {
-    opacity: 1;
-    filter: none;
-    transform: none;
-    transition: none;
-  }
-
-  .orb {
-    animation: none;
-  }
-
-  .bg-hearts span {
-    animation: none;
   }
 }
